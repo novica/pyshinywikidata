@@ -8,5 +8,5 @@ Run it with:
  ```
 
 Read more about the motivation for this app:
-- 
-- 
+- [Part 1](https://discindo.org/post/using-wikidata-to-draw-networks-of-politically-exposed-persons-1/)
+- [Part 2](https://discindo.org/post/using-wikidata-to-draw-networks-of-politically-exposed-persons-2/)

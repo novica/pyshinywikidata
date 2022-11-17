@@ -1,13 +1,21 @@
 from shiny import App, render, ui, reactive, req
 from functions import endpoint_url, get_results, wrangle_results
-
+from testmodule import modUI, modServer
 
 app_ui = ui.page_fluid(
-    ui.h2("Wikidata demo"),
-    ui.input_text(id='country_code', label="Wikidata Country Code"),
-    ui.input_action_button(id='enter_code', label="Enter Code"),
-    ui.output_text_verbatim("txt"),
-    ui.output_text_verbatim("res")
+    ui.row(
+        ui.column(6,
+                  ui.h2("Wikidata demo"),
+                  ui.input_text(id='country_code',
+                                label="Wikidata Country Code"),
+                  ui.input_action_button(id='enter_code', label="Enter Code"),
+                  ui.output_text_verbatim("txt"),
+                  ui.output_text_verbatim("res")),
+        ui.column(3,
+                  modUI("mod1"),
+                  modUI("mod2")
+                  )
+    )
 )
 
 
@@ -48,5 +56,9 @@ def server(input, output, session):
     def res():
         res = query_results()
         return res
+
+    modServer("mod1")
+    modServer("mod2")
+
 
 app = App(app_ui, server)
