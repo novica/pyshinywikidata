@@ -1,5 +1,5 @@
 from shiny import App, render, ui, reactive, req
-from .functions import endpoint_url, get_results, wrangle_results
+from .fct.functions import endpoint_url, get_results, wrangle_results
 from .testmodule import modUI, modServer
 
 app_ui = ui.page_fluid(
