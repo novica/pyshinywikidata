@@ -1,6 +1,6 @@
 from shiny import App, render, ui, reactive, req
-from functions import endpoint_url, get_results, wrangle_results
-from testmodule import modUI, modServer
+from .functions import endpoint_url, get_results, wrangle_results
+from .testmodule import modUI, modServer
 
 app_ui = ui.page_fluid(
     ui.row(
@@ -12,8 +12,7 @@ app_ui = ui.page_fluid(
                   ui.output_text_verbatim("txt"),
                   ui.output_text_verbatim("res")),
         ui.column(3,
-                  modUI("mod1"),
-                  modUI("mod2")
+                  modUI("testmodule1")
                   )
     )
 )
@@ -39,7 +38,7 @@ def server(input, output, session):
 
     @reactive.Calc()
     def query_results():
-        req(input.country_code())
+        req(input.country_code)
         results = get_results(endpoint_url=endpoint_url(), query=paste_query())
         names = wrangle_results(results=results)
         return names
@@ -57,8 +56,7 @@ def server(input, output, session):
         res = query_results()
         return res
 
-    modServer("mod1")
-    modServer("mod2")
+    modServer("testmodule1")
 
 
 app = App(app_ui, server)
