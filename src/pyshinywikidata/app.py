@@ -12,7 +12,7 @@ app_ui = ui.page_fluid(
                   ui.output_text_verbatim("txt"),
                   ui.output_text_verbatim("res")),
         ui.column(3,
-                  modUI("testmodule1")
+                  modUI(id = "testmodule1")
                   )
     )
 )
@@ -56,7 +56,7 @@ def server(input, output, session):
         res = query_results()
         return res
 
-    modServer("testmodule1")
+    modServer(id = "testmodule1")
 
 
 app = App(app_ui, server)
