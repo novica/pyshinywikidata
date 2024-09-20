@@ -30,7 +30,7 @@
       "checksum": "4389f4db870fbaf9a4a545fe2e99626d"
     },
     "pyproject.toml": {
-      "checksum": "1e529bbd371ed50091d0b9becdd12938"
+      "checksum": "aabc1317b199e5094db313ce47d391b1"
     },
     "src/pyshinywikidata/__init__.py": {
       "checksum": "d41d8cd98f00b204e9800998ecf8427e"
@@ -48,7 +48,7 @@
       "checksum": "25c92023fe4cc0e1fc3faf568492ec94"
     },
     "uv.lock": {
-      "checksum": "2ab96400fe6a0c2343fa7a4ad2600502"
+      "checksum": "25f43248bde242c1b4e000032dac5ee0"
     }
   }
 }

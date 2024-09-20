@@ -277,6 +277,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "pandas", specifier = ">=2.2.3" },
+    { name = "pyshinywikidata", editable = "." },
     { name = "shiny", specifier = ">=1.1.0" },
     { name = "sparqlwrapper", specifier = ">=2.0.0" },
 ]
