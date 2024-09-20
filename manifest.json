@@ -3,7 +3,7 @@
   "locale": "mk_MK.UTF-8",
   "metadata": {
     "appmode": "python-shiny",
-    "entrypoint": "pyshinywikidata.app:app"
+    "entrypoint": "app"
   },
   "python": {
     "version": "3.11.5",
@@ -15,40 +15,22 @@
   },
   "files": {
     "requirements.txt": {
-      "checksum": "b442fbb0d97e419e03f9ee31b82a302d"
+      "checksum": "6127f681f9d764af442c1859c95ac32e"
     },
-    ".gitignore": {
-      "checksum": "7bf9b0c4b3696ef1795f98059a265645"
-    },
-    ".python-version": {
-      "checksum": "215923581f8fcce0029639f7ab16ccb6"
-    },
-    "LICENSE": {
+    "__init__.py": {
       "checksum": "d41d8cd98f00b204e9800998ecf8427e"
     },
-    "README.md": {
-      "checksum": "4389f4db870fbaf9a4a545fe2e99626d"
-    },
-    "pyproject.toml": {
-      "checksum": "282bfebaa135595b6bed91d1735ec619"
-    },
-    "src/pyshinywikidata/__init__.py": {
-      "checksum": "d41d8cd98f00b204e9800998ecf8427e"
-    },
-    "src/pyshinywikidata/app.py": {
+    "app.py": {
       "checksum": "77334bd22794c8c1e1f6a2a88e16fb02"
     },
-    "src/pyshinywikidata/fct/__init__.py": {
+    "fct/__init__.py": {
       "checksum": "d41d8cd98f00b204e9800998ecf8427e"
     },
-    "src/pyshinywikidata/fct/functions.py": {
+    "fct/functions.py": {
       "checksum": "8089300613f5da268aec00cbf1ed4a85"
     },
-    "src/pyshinywikidata/testmodule.py": {
+    "testmodule.py": {
       "checksum": "25c92023fe4cc0e1fc3faf568492ec94"
-    },
-    "uv.lock": {
-      "checksum": "2ab96400fe6a0c2343fa7a4ad2600502"
     }
   }
 }
