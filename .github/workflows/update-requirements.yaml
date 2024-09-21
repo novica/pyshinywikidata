@@ -6,7 +6,9 @@ on:
       - main  # Trigger when pushing to main
 
 jobs:
-  update-requirements:
+  ci:
+    env:
+      UV_SYSTEM_PYTHON: true
     runs-on: ubuntu-latest
 
     steps:
