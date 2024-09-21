@@ -6,7 +6,7 @@ on:
       - main  # Trigger when pushing to main
 
 jobs:
-  ci:
+  update requirements:
     env:
       UV_SYSTEM_PYTHON: true
     runs-on: ubuntu-latest
@@ -27,14 +27,14 @@ jobs:
       # Step 3: Install the project
       - name: Install the project
         run: uv sync --all-extras --dev --locked
-      
+
 
       # Step 4: Run uv commands to generate requirements
       - name: Run uv commands to generate requirements
         run: |
           uv export --no-hashes -o requirements.txt
           uvx --from rsconnect-python --python .venv/bin/python rsconnect write-manifest shiny . --entrypoint pyshinywikidata.app:app 
-      
+
       # Step 5: Commit and push updated requirements file (if it changes)
       - name: Commit changes
         run: |
