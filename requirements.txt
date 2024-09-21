@@ -18,7 +18,7 @@ click==8.1.7 \
 colorama==0.4.6 ; platform_system == 'Windows' \
     --hash=sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44 \
     --hash=sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6
-h11==0.14.0 ; platform_system != 'Emscripten' \
+h11==0.14.0 \
     --hash=sha256:8f19fbbe99e72420ff35c00b27a34cb9937e902a8b810e2c88300c6f0a3b699d \
     --hash=sha256:e3fe4ac4b851c468cc8363d500db52c2ead036020723024a109d37346efaa761
 htmltools==0.5.3 \
@@ -255,3 +255,6 @@ websockets==13.0.1 \
     --hash=sha256:254ecf35572fca01a9f789a1d0f543898e222f7b69ecd7d5381d8d8047627bdb \
     --hash=sha256:ca48914cdd9f2ccd94deab5bcb5ac98025a5ddce98881e5cce762854a5de330b \
     --hash=sha256:b80f0c51681c517604152eb6a572f5a9378f877763231fddb883ba2f968e8817
+wsproto==1.2.0 \
+    --hash=sha256:ad565f26ecb92588a3e43bc3d96164de84cd9902482b130d0ddbaa9664a85065 \
+    --hash=sha256:b9acddd652b585d75b20477888c56642fdade28bdfd3579aa24a4d2c037dd736

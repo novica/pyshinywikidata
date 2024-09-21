@@ -23,6 +23,7 @@ dependencies = [
     "rsconnect-python>=1.24.0",
     "shiny>=1.1.0",
     "sparqlwrapper>=2.0.0",
+    "wsproto>=1.2.0",
 ]
 
 [project.urls]
