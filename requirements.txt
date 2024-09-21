@@ -17,7 +17,7 @@ pandas==2.2.3
 prompt-toolkit==3.0.36
 PyJWT==2.9.0
 pyparsing==3.1.4
--e git+ssh://git@github.com/novica/pyshinywikidata.git@2235be08444c4d1413a19c09ae61268a05f48c30#egg=pyshinywikidata
+#-e git+ssh://git@github.com/novica/pyshinywikidata.git@2235be08444c4d1413a19c09ae61268a05f48c30#egg=pyshinywikidata
 python-dateutil==2.9.0.post0
 python-multipart==0.0.9
 pytz==2024.2
@@ -36,3 +36,4 @@ uvicorn==0.30.6
 watchfiles==0.24.0
 wcwidth==0.2.13
 websockets==13.0.1
+-e git+https://github.com/novica/pyshinywikidata.git@2235be08444c4d1413a19c09ae61268a05f48c30#egg=pyshinywikidata
