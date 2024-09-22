@@ -23,23 +23,29 @@ jobs:
         run: |
           git push --force origin main:deploy  # Force push main to deploy
 
-      # Step 3: Set up uv
+      # Step 3: Checkout deploy
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: deploy  # Checkout the deploy branch make changes there
+
+      # Step 4: Set up uv
       - name: Setup uv
         uses: astral-sh/setup-uv@v3
         with:
           enable-cache: true
 
-      # Step 4: Install the project
+      # Step 5: Install the project
       - name: Install the project
         run: uv sync --all-extras --dev --locked
 
-      # Step 5: Run uv commands to generate requirements
+      # Step 6: Run uv commands to generate requirements
       - name: Run uv commands to generate requirements
         run: |
           uv export --no-hashes -o requirements.txt
           uvx --from rsconnect-python --python .venv/bin/python rsconnect write-manifest shiny . --entrypoint pyshinywikidata.app:app
 
-      # Step 6: Commit and push updated requirements file (if it changes)
+      # Step 7: Commit and push updated requirements file (if it changes)
       - name: Commit changes
         run: |
           git config --global user.name "github-actions[bot]"
