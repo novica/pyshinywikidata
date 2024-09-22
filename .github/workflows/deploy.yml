@@ -16,7 +16,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          ref: deploy  # Checkout the deploy branch to make changes there
+          ref: main # Checkout the main branch to get latest changes
 
       # Step 2: Merge main into deploy
       - name: Force push main to deploy
