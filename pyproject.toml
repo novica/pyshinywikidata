@@ -25,6 +25,3 @@ dependencies = [
 [project.urls]
 "Homepage" = "https://github.com/novica/pyshinywikidata"
 "Bug Tracker" = "https://github.com/novica/pyshinywikidata/issues"
-
-[tool.uv.sources]
-pyshinywikidata = { workspace = true }
