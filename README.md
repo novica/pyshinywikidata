@@ -2,16 +2,15 @@
 
 This is a simple demo in Shiny for Python to access data on Wikidata for politicians and their closes relatives as an attempt to get data on politically exposed persons.
 
-This is also a python package. To run it clone the repor and install the package with:
+This is also a python package managed with uv and automated to be deployed to Posit Connect. To run it clone the repor and install the package with:
 
 ```
-pip install .
+uv sync
 ```
 
 Then, run the app with:
 
 ```
-uv sync
 uv run uvicorn pyshinywikidata.app:app --host 127.0.0.1 --port 8000
 ```
 
