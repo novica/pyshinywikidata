@@ -12,8 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the repository
-      - name: Checkout repository
+      # Step 1: Checkout the main branch from repository
+      - name: Checkout main
         uses: actions/checkout@v4
         with:
           ref: main # Checkout the main branch to get latest changes
@@ -23,8 +23,8 @@ jobs:
         run: |
           git push --force origin main:deploy  # Force push main to deploy
 
-      # Step 3: Checkout deploy
-      - name: Checkout repository
+      # Step 3: Checkout the deploy branch from the repository
+      - name: Checkout deploy
         uses: actions/checkout@v4
         with:
           ref: deploy  # Checkout the deploy branch make changes there
