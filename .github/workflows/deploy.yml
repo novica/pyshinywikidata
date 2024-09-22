@@ -19,10 +19,9 @@ jobs:
           ref: deploy  # Checkout the deploy branch to make changes there
 
       # Step 2: Merge main into deploy
-      - name: Merge main into deploy
+      - name: Force push main to deploy
         run: |
-          git fetch origin main
-          git merge origin/main || git merge --abort  # Merge main branch into deploy, abort if merge conflicts
+          git push --force origin main:deploy  # Force push main to deploy
 
       # Step 3: Set up uv
       - name: Setup uv
