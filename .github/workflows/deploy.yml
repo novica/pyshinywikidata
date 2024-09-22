@@ -16,30 +16,35 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          ref: main  # Checkout the deploy branch to make changes there
+          ref: deploy  # Checkout the deploy branch to make changes there
 
-      # Step 2: Set up uv
+      # Step 2: Merge main into deploy
+      - name: Merge main into deploy
+        run: |
+          git fetch origin main
+          git merge origin/main || git merge --abort  # Merge main branch into deploy, abort if merge conflicts
+
+      # Step 3: Set up uv
       - name: Setup uv
         uses: astral-sh/setup-uv@v3
         with:
           enable-cache: true
 
-      # Step 3: Install the project
+      # Step 4: Install the project
       - name: Install the project
         run: uv sync --all-extras --dev --locked
 
-
-      # Step 4: Run uv commands to generate requirements
+      # Step 5: Run uv commands to generate requirements
       - name: Run uv commands to generate requirements
         run: |
           uv export --no-hashes -o requirements.txt
-          uvx --from rsconnect-python --python .venv/bin/python rsconnect write-manifest shiny . --entrypoint pyshinywikidata.app:app 
+          uvx --from rsconnect-python --python .venv/bin/python rsconnect write-manifest shiny . --entrypoint pyshinywikidata.app:app
 
-      # Step 5: Commit and push updated requirements file (if it changes)
+      # Step 6: Commit and push updated requirements file (if it changes)
       - name: Commit changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add .
           git commit -m "Update requirements on new commit from main" || echo "No changes to commit"
-          git push --force  origin deploy  # Push to deploy branch, using force because of diverging branches
+          git push origin deploy  # Push to deploy branch, using force because of diverging branches
