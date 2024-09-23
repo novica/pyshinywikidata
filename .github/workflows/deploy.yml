@@ -14,9 +14,10 @@ jobs:
 
     steps:
       - name: Get secrets
-        env:
-          CONNECT_SERVER:  ${{ secrets.CONNECT_SERVER }}
-          CONNECT_API_KEY: ${{ secrets.CONNECT_API_KEY }}
+        uses: |
+          env:
+            CONNECT_SERVER:  ${{ secrets.CONNECT_SERVER }}
+            CONNECT_API_KEY: ${{ secrets.CONNECT_API_KEY }}
     
       - name: Checkout main
         uses: actions/checkout@v4
