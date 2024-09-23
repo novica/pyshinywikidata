@@ -1,3 +1,4 @@
+# Deploy branch is followed by Posit Connect
 name: Update Requirements on Deploy Branch
 
 on:
@@ -12,34 +13,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the main branch from repository
       - name: Checkout main
         uses: actions/checkout@v4
-        with:
-          ref: main # Checkout the main branch to get latest changes
 
-      # Step 2: Set up uv
       - name: Setup uv
         uses: astral-sh/setup-uv@v3
         with:
           enable-cache: true
 
-      # Step 3: Install the project
-      - name: Install the project
-        run: uv sync --all-extras --dev --locked
+      - name: Generate requirements.txt with `uv`
+        run: uv export --no-hashes -o requirements.txt
 
-      # Step 4: Run uv commands to generate requirements
-      - name: Run uv commands to generate requirements
-        run: |
-          uv export --no-hashes -o requirements.txt
-          uvx --from rsconnect-python --python .venv/bin/python rsconnect write-manifest shiny . --entrypoint pyshinywikidata.app:app
+      - name: Generate rsconnect-python manifest.json
+        run: uvx --from rsconnect-python rsconnect write-manifest shiny . --entrypoint pyshinywikidata.app:app
 
-      # Step 5: Commit and push updated requirements file (if it changes)
-      - name: Commit changes
+      - name: Commit changes and push to deply branch
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add .
+          git add requirements.txt manifest.json
           git commit -m "Update requirements on new commit from main" || echo "No changes to commit"
           git push origin --force HEAD:deploy  # Push to deploy branch, using force because of diverging branches
-
