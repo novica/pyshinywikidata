@@ -43,4 +43,4 @@ jobs:
           ref: deploy
       
       - name: Deploy the deploy branch to Connect
-        run: uvx --from rsconnect-python rsconnect rsconnect deploy --server=$CONNECT_SERVER --api-key=$CONNECT_API_KEY manifest manifest.json
+        run: uvx --from rsconnect-python rsconnect deploy --server=$CONNECT_SERVER --api-key=$CONNECT_API_KEY manifest manifest.json
