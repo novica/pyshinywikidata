@@ -267,7 +267,7 @@ wheels = [
 [[package]]
 name = "pyshinywikidata"
 version = "0.0.1"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "pandas" },
     { name = "shiny" },
