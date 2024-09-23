@@ -10,15 +10,11 @@ jobs:
   ci:
     env:
       UV_SYSTEM_PYTHON: true
+      CONNECT_SERVER:  ${{ secrets.CONNECT_SERVER }}
+      CONNECT_API_KEY: ${{ secrets.CONNECT_API_KEY }}
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Get secrets
-        uses: |
-          env:
-            CONNECT_SERVER:  ${{ secrets.CONNECT_SERVER }}
-            CONNECT_API_KEY: ${{ secrets.CONNECT_API_KEY }}
-    
+    steps:    
       - name: Checkout main
         uses: actions/checkout@v4
 
