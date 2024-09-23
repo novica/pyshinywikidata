@@ -8,7 +8,7 @@ This is also a python package managed with [`uv`](https://docs.astral.sh/uv) and
 uv sync
 ```
 
-Then, run the app with:
+Then, run the shiny app with:
 
 ```
 uv run uvicorn pyshinywikidata.app:app
