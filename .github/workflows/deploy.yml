@@ -24,7 +24,7 @@ jobs:
       - name: Generate requirements.txt with `uv`
         run: uv export --no-hashes -o requirements.txt
 
-      - name: Generate manifest.json
+      - name: Generate rsconnect-python manifest.json
         run: uvx --from rsconnect-python rsconnect write-manifest shiny . --entrypoint pyshinywikidata.app:app
 
       - name: Commit changes and push to deply branch
