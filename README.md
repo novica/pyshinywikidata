@@ -2,7 +2,7 @@
 
 This is a simple demo in Shiny for Python to access data on Wikidata for politicians and their closes relatives as an attempt to get data on politically exposed persons.
 
-This is also a python package managed with [`uv`](https://docs.astral.sh/uv) and automated to be deployed to Posit Connect. To run it clone the repor and install the package with:
+This is also a python package managed with [`uv`](https://docs.astral.sh/uv) and automated to be deployed to Posit Connect. To run it clone the repository and install the package with:
 
 ```
 uv sync
