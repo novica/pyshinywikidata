@@ -41,5 +41,5 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add .
           git commit -m "Update requirements on new commit from main" || echo "No changes to commit"
-          git push origin -force HEAD:deploy  # Push to deploy branch, using force because of diverging branches
+          git push origin --force HEAD:deploy  # Push to deploy branch, using force because of diverging branches
 
