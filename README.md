@@ -16,7 +16,7 @@ uv run uvicorn pyshinywikidata.app:app
 
 ## Deploy to Posit Connect
 
-Deployment to Posit Connect (for more see: [Git-Backed Content] (https://docs.posit.co/connect/user/git-backed/)) is automated by the github actions workflow [`deploy.yml`](.github/workflows/deploy.yml).
+Deployment to Posit Connect (for more see: [Git-Backed Content](https://docs.posit.co/connect/user/git-backed/)) is automated by the github actions workflow [`deploy.yml`](.github/workflows/deploy.yml).
 Since we use `uv` to manage the project, the `requirements.txt` and `manifest.json` files needed by Posit,
 are created automatically and only added to the deploy branch.
 
