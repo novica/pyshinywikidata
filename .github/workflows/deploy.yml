@@ -29,18 +29,18 @@ jobs:
       - name: Generate rsconnect-python manifest.json
         run: uvx --from rsconnect-python rsconnect write-manifest shiny . --entrypoint pyshinywikidata.app:app
 
-      - name: Commit changes and push to deploy branch
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add requirements.txt manifest.json
-          git commit -m "Update requirements on new commit from main" || echo "No changes to commit"
-          git push origin --force HEAD:deploy  # Push to deploy branch, using force because of diverging branches
+      #- name: Commit changes and push to deploy branch
+      #  run: |
+      #    git config --global user.name "github-actions[bot]"
+      #    git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      #    git add requirements.txt manifest.json
+      #    git commit -m "Update requirements on new commit from main" || echo "No changes to commit"
+      #    git push origin --force HEAD:deploy  # Push to deploy branch, using force because of diverging branches
 
-      - name: Checkout deploy
-        uses: actions/checkout@v4
-        with:
-          ref: deploy
+      #- name: Checkout deploy
+      #  uses: actions/checkout@v4
+      #  with:
+      #    ref: deploy
       
       - name: Deploy the deploy branch to Connect
         run: uvx --from rsconnect-python rsconnect deploy manifest --server=$CONNECT_SERVER --api-key=$CONNECT_API_KEY  manifest.json
