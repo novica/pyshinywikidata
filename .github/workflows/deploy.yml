@@ -1,3 +1,4 @@
+# Deploy branch is followed by Posit Connect
 name: Update Requirements on Deploy Branch
 
 on:
@@ -12,44 +13,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the main branch from repository
       - name: Checkout main
         uses: actions/checkout@v4
-        with:
-          ref: main # Checkout the main branch to get latest changes
 
-      # Step 2: Merge main into deploy
-      - name: Force push main to deploy
-        run: |
-          git push --force origin main:deploy  # Force push main to deploy
-
-      # Step 3: Checkout the deploy branch from the repository
-      - name: Checkout deploy
-        uses: actions/checkout@v4
-        with:
-          ref: deploy  # Checkout the deploy branch make changes there
-
-      # Step 4: Set up uv
       - name: Setup uv
         uses: astral-sh/setup-uv@v3
         with:
           enable-cache: true
 
-      # Step 5: Install the project
-      - name: Install the project
-        run: uv sync --all-extras --dev --locked
+      - name: Generate requirements.txt with `uv`
+        run: uv export --no-hashes -o requirements.txt
 
-      # Step 6: Run uv commands to generate requirements
-      - name: Run uv commands to generate requirements
-        run: |
-          uv export --no-hashes -o requirements.txt
-          uvx --from rsconnect-python --python .venv/bin/python rsconnect write-manifest shiny . --entrypoint pyshinywikidata.app:app
+      - name: Generate manifest.json
+        run: uvx --from rsconnect-python rsconnect write-manifest shiny . --entrypoint pyshinywikidata.app:app
 
-      # Step 7: Commit and push updated requirements file (if it changes)
-      - name: Commit changes
+      - name: Commit changes and push to deply branch
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add .
+          git add requirements.txt manifest.json
           git commit -m "Update requirements on new commit from main" || echo "No changes to commit"
-          git push origin deploy  # Push to deploy branch, using force because of diverging branches
+          git push origin --force HEAD:deploy  # Push to deploy branch, using force because of diverging branches
