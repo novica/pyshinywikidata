@@ -24,13 +24,17 @@ jobs:
         with:
           enable-cache: true
 
-      # Step 3: Run uv commands to generate requirements
+      # Step 3: Install the project
+      - name: Install the project
+        run: uv sync --all-extras --dev --locked
+
+      # Step 4: Run uv commands to generate requirements
       - name: Run uv commands to generate requirements
         run: |
           uv export --no-hashes -o requirements.txt
           uvx --from rsconnect-python --python .venv/bin/python rsconnect write-manifest shiny . --entrypoint pyshinywikidata.app:app
 
-      # Step 4: Commit and push updated requirements file (if it changes)
+      # Step 5: Commit and push updated requirements file (if it changes)
       - name: Commit changes
         run: |
           git config --global user.name "github-actions[bot]"
