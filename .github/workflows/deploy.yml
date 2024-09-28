@@ -45,5 +45,5 @@ jobs:
       # It would've been nice to deploy it directly, but Connect requires 
       # metadata from previous deployments to be able to update an application.
       # This way each run is a new deployment, which is not something we want.
-      # - name: Deploy the deploy branch to Connect
-      #  run: uvx --from rsconnect-python rsconnect deploy manifest --server=$CONNECT_SERVER --api-key=$CONNECT_API_KEY  manifest.json
+      - name: Deploy the deploy branch to Connect
+        run: uvx --from rsconnect-python rsconnect deploy manifest --server=$CONNECT_SERVER --api-key=$CONNECT_API_KEY  manifest.json
