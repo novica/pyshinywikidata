@@ -47,3 +47,12 @@ jobs:
       # This way each run is a new deployment, which is not something we want.
       # - name: Deploy the deploy branch to Connect
       #  run: uvx --from rsconnect-python rsconnect deploy manifest --server=$CONNECT_SERVER --api-key=$CONNECT_API_KEY  manifest.json
+
+      - name: Publish to Posit Connect
+        uses: rstudio/actions/connect-publish@main
+        with:
+          url: ${{ secrets.CONNECT_SERVER }}
+          api-key: ${{ secrets.CONNECT_API_KEY }}
+          access-type: all
+          dir: |
+            .:/pyshinywikidata-action
