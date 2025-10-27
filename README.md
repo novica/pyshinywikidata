@@ -21,7 +21,7 @@ Since we use `uv` to manage the project, the `requirements.txt` and `manifest.js
 are created automatically and only added to the deploy branch.
 
 ## Read more about the motivation for this app:
-- [Part 1](https://discindo.org/post/using-wikidata-to-draw-networks-of-politically-exposed-persons-1/)
-- [Part 2](https://discindo.org/post/using-wikidata-to-draw-networks-of-politically-exposed-persons-2/)
-- [Part 3](https://discindo.org/post/using-uv-to-manage-environment-for-a-python-shiny-app-and-set-up-a-workflow-to-publish-it-to-posit-connect/)
-- [Part 4](https://discindo.org/post/noting-the-differences-in-deploying-r-vs-python-apps-on-posit-connect/)
+- [Part 1](https://discindo.org/posts/2022-11-16-using-wikidata-to-draw-networks-of-politically-exposed-persons-1/)
+- [Part 2](https://discindo.org/posts/2022-11-16-using-wikidata-to-draw-networks-of-politically-exposed-persons-2/)
+- [Part 3](https://discindo.org/posts/pkg-env/2024-09-21-using-uv-to-manage-the-environment-for-a-python-shiny-app-and-set-up-a-workflow-to-publish-it-to-posit-connect/)
+- [Part 4](https://discindo.org/posts/pkg-env/2024-09-29-noting-the-differences-in-deploying-r-vs-python-apps-on-posit-connect/)
